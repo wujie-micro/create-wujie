@@ -119,10 +119,9 @@ async function renderTemplate() {
       )
     })
   }
+  console.log(options)
 
   // 编译 ejs 模板文件
-  console.log(666666)
-
   await Promise.all(renderTemplateFiles().map((file) => ejsRender(file, options.name)))
 }
 

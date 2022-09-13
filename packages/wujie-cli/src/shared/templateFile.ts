@@ -21,7 +21,7 @@ function renderTemplateFiles() {
         `${MAIN_PREFIX_VITE}/main.ts`,
         `${MAIN_PREFIX_VITE}/App.vue`,
         `${MAIN_PREFIX_VITE}/router/index.ts`,
-        `${MAIN_PREFIX_VUE}/views/Multiple.vue`
+        `${MAIN_PREFIX_VITE}/views/Multiple.vue`
       ]
     ],
     [
@@ -44,6 +44,11 @@ function renderTemplateFiles() {
   const res = options.subFramework.map((item) => {
     return resolveSubFrameworkFiles.get(item)
   })
+  console.log([
+    ...mainFrameworkMap.get(options.mainFramework),
+    ...res.flat().filter((item) => item !== undefined)
+  ])
+
   return [
     ...mainFrameworkMap.get(options.mainFramework),
     ...res.flat().filter((item) => item !== undefined)
