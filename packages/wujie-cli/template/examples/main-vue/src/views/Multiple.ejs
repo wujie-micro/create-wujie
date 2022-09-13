@@ -27,12 +27,24 @@
   export default {
     data() {
       return {
-        react16Url: hostMap("//localhost:7600/"),
-        react17Url: hostMap("//localhost:7100/"),
-        vue2Url: hostMap("//localhost:8081/"),
-        vue3Url: hostMap("//localhost:8082/"),
-        vite: hostMap("//localhost:8083/"),
-        angular12Url: hostMap("//localhost:7400/"),
+        <% if (subFramework.includes('React16')) { -%>
+          react16Url: hostMap("//localhost:7600/"),
+        <% } -%>
+        <% if (subFramework.includes('React17')) { -%>
+          react17Url: hostMap("//localhost:7100/"),
+        <% } -%>
+        <% if (subFramework.includes('Vue2')) { -%>
+          vue2Url: hostMap("//localhost:8081/"),
+        <% } -%>
+        <% if (subFramework.includes('Vue3')) { -%>
+          vue3Url: hostMap("//localhost:8082/"),
+        <% } -%>
+        <% if (subFramework.includes('Vite')) { -%>
+          vite: hostMap("//localhost:8083/"),
+        <% } -%>
+        <% if (subFramework.includes('Angular12')) { -%>
+          angular12Url: hostMap("//localhost:7400/"),
+        <% } -%>
       };
     },
     methods: {

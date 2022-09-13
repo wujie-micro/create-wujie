@@ -43,136 +43,156 @@ const props = {
   },
 };
 // 创建应用，主要是设置配置，preloadApp、startApp的配置基于这个配置做覆盖
-setupApp({
-  name: "react16",
-  url: hostMap("//localhost:7600/"),
-  attrs: isProduction
-    ? {
-        src: hostMap("//localhost:7600/"),
-      }
-    : {},
-  exec: true,
-  props,
-  fetch: credentialsFetch,
-  plugins,
-  prefix: {
-    "prefix-dialog": "/dialog",
-    "prefix-location": "/location",
-  },
-  degrade,
-  // 修正iframe的url，防止github pages csp报错
-  react16Attrs:
-    process.env.NODE_ENV === "production"
+<% if (subFramework.includes('React16')) { -%>
+  setupApp({
+    name: "react16",
+    url: hostMap("//localhost:7600/"),
+    attrs: isProduction
       ? {
           src: hostMap("//localhost:7600/"),
         }
       : {},
-  ...lifecycles,
-});
-
-setupApp({
-  name: "react17",
-  url: hostMap("//localhost:7100/"),
-  attrs: isProduction
-    ? {
-        src: hostMap("//localhost:7100/"),
-      }
-    : {},
-  exec: true,
-  alive: true,
-  props,
-  fetch: credentialsFetch,
-  degrade,
-  ...lifecycles,
-});
-
-setupApp({
-  name: "vue2",
-  url: hostMap("//localhost:8081/"),
-  attrs: isProduction
-    ? {
-        src: hostMap("//localhost:8081/"),
-      }
-    : {},
-  exec: true,
-  props,
-  fetch: credentialsFetch,
-  degrade,
-  ...lifecycles,
-});
-
-setupApp({
-  name: "vue3",
-  url: hostMap("//localhost:8082/"),
-  attrs: isProduction
-    ? {
-        src: hostMap("//localhost:8082/"),
-      }
-    : {},
-  exec: true,
-  alive: true,
-  plugins: [
-    {
-      cssExcludes: ["https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"],
+    exec: true,
+    props,
+    fetch: credentialsFetch,
+    plugins,
+    prefix: {
+      "prefix-dialog": "/dialog",
+      "prefix-location": "/location",
     },
-  ],
-  props,
-  // 引入了的第三方样式不需要添加credentials
-  fetch: (url, options) =>
-    url.includes(hostMap("//localhost:8082/")) ? credentialsFetch(url, options) : window.fetch(url, options),
-  degrade,
-  ...lifecycles,
-});
+    degrade,
+    // 修正iframe的url，防止github pages csp报错
+    react16Attrs:
+      process.env.NODE_ENV === "production"
+        ? {
+            src: hostMap("//localhost:7600/"),
+          }
+        : {},
+    ...lifecycles,
+  });
+<% } -%>
+<% if (subFramework.includes('React17')) { -%>
+  setupApp({
+    name: "react17",
+    url: hostMap("//localhost:7100/"),
+    attrs: isProduction
+      ? {
+          src: hostMap("//localhost:7100/"),
+        }
+      : {},
+    exec: true,
+    alive: true,
+    props,
+    fetch: credentialsFetch,
+    degrade,
+    ...lifecycles,
+  });
+<% } -%>
+<% if (subFramework.includes('Vue2')) { -%>
+  setupApp({
+    name: "vue2",
+    url: hostMap("//localhost:8081/"),
+    attrs: isProduction
+      ? {
+          src: hostMap("//localhost:8081/"),
+        }
+      : {},
+    exec: true,
+    props,
+    fetch: credentialsFetch,
+    degrade,
+    ...lifecycles,
+  });
+<% } -%>
+<% if (subFramework.includes('Vue3')) { -%>
 
-setupApp({
-  name: "angular12",
-  url: hostMap("//localhost:7400/"),
-  attrs: isProduction
-    ? {
-        src: hostMap("//localhost:7400/"),
-      }
-    : {},
-  exec: true,
-  props,
-  fetch: credentialsFetch,
-  degrade,
-  ...lifecycles,
-});
-
-setupApp({
-  name: "vite",
-  url: hostMap("//localhost:8083/"),
-  attrs: isProduction
-    ? {
-        src: hostMap("//localhost:8083/"),
-      }
-    : {},
-  exec: true,
-  props,
-  fetch: credentialsFetch,
-  degrade,
-  ...lifecycles,
-});
+  setupApp({
+    name: "vue3",
+    url: hostMap("//localhost:8082/"),
+    attrs: isProduction
+      ? {
+          src: hostMap("//localhost:8082/"),
+        }
+      : {},
+    exec: true,
+    alive: true,
+    plugins: [
+      {
+        cssExcludes: ["https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"],
+      },
+    ],
+    props,
+    // 引入了的第三方样式不需要添加credentials
+    fetch: (url, options) =>
+      url.includes(hostMap("//localhost:8082/")) ? credentialsFetch(url, options) : window.fetch(url, options),
+    degrade,
+    ...lifecycles,
+  });
+<% } -%>
+<% if (subFramework.includes('Vite')) { -%>
+  setupApp({
+    name: "vite",
+    url: hostMap("//localhost:8083/"),
+    attrs: isProduction
+      ? {
+          src: hostMap("//localhost:8083/"),
+        }
+      : {},
+    exec: true,
+    props,
+    fetch: credentialsFetch,
+    degrade,
+    ...lifecycles,
+  });
+<% } -%>
+<% if (subFramework.includes('Angular12')) { -%>
+  setupApp({
+    name: "angular12",
+    url: hostMap("//localhost:7400/"),
+    attrs: isProduction
+      ? {
+          src: hostMap("//localhost:7400/"),
+        }
+      : {},
+    exec: true,
+    props,
+    fetch: credentialsFetch,
+    degrade,
+    ...lifecycles,
+  });
+<% } -%>
 
 if (window.localStorage.getItem("preload") !== "false") {
-  preloadApp({
-    name: "react16",
-  });
-  preloadApp({
-    name: "react17",
-  });
-  preloadApp({
-    name: "vue2",
-  });
-  preloadApp({
-    name: "vue3",
-  });
-  preloadApp({
-    name: "angular12",
-  });
-  preloadApp({
-    name: "vite",
-  });
+  <% if (subFramework.includes('React16')) { -%>
+    preloadApp({
+      name: "react16",
+    });
+  <% } -%>
+  <% if (subFramework.includes('React17')) { -%>
+    preloadApp({
+      name: "react17",
+    });
+  <% } -%>
+  <% if (subFramework.includes('Vue2')) { -%>
+    preloadApp({
+      name: "vue2",
+    });
+  <% } -%>
+  <% if (subFramework.includes('Vue3')) { -%>
+    preloadApp({
+      name: "vue3",
+    });
+  <% } -%>
+  <% if (subFramework.includes('Angular12')) { -%>
+    preloadApp({
+      name: "angular12",
+    });
+  <% } -%>
+  <% if (subFramework.includes('Vite')) { -%>
+    preloadApp({
+      name: "vite",
+    });
+  <% } -%>
 }
 
 new Vue({

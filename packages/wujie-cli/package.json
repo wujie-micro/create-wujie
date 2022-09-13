@@ -1,6 +1,6 @@
 {
   "name": "create-wujie",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "",
   "bin": {
     "wujie": "outfile.cjs"
@@ -11,9 +11,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://github.com/ErKeLost/vite-cli#readme",
-  "repository": "https://github.com/ErKeLost/vite-cli",
-  "bugs": "https://github.com/ErKeLost/vite-cli/issues",
+  "homepage": "https://github.com/wujie-micro/create-wujie-app#readme",
+  "repository": "https://github.com/wujie-micro/create-wujie-app",
+  "bugs": "https://github.com/wujie-micro/create-wujie-app/issues",
   "devDependencies": {
     "ejs": "^3.1.8",
     "@types/node": "^18.0.0",
