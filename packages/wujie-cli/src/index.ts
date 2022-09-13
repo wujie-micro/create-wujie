@@ -100,7 +100,6 @@ async function renderTemplate() {
   }) // 这里是对比出来不同的元素
   // 移除undefined
   const removeSubItems = subItems.filter((item) => item !== undefined)
-  console.log(removeSubItems)
   removeSubItems.forEach(async (item) => {
     await fs.remove(`${options.dest}/examples/${item}`)
   })
@@ -121,11 +120,7 @@ async function renderTemplate() {
     })
   }
 
-  console.log(options)
-
   // 编译 ejs 模板文件
-  console.log(renderTemplateFiles())
-
   await Promise.all(renderTemplateFiles().map((file) => ejsRender(file, options.name)))
 }
 
