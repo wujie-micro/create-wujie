@@ -3,7 +3,7 @@ export default [
     name: 'mainFramework',
     type: 'select',
     instructions: false,
-    message: 'What framework do you choose as your main application (选择什么框架作为你的主应用)',
+    message: 'What framework do you choose as your main application',
     choices: [
       {
         title: 'Webpack + Vue2',
@@ -23,7 +23,7 @@ export default [
     name: 'mainRouter',
     type: 'select',
     instructions: false,
-    message: 'Select the main application route pattern (选择主应用路由模式)',
+    message: 'Select the main application route pattern',
     choices: [
       {
         title: 'hash',
@@ -38,7 +38,7 @@ export default [
   {
     name: 'subFramework',
     type: 'multiselect',
-    message: 'What framework do you choose as your sub application (选择什么框架作为你的子应用)',
+    message: 'What framework do you choose as your sub application',
     instructions: false,
     choices: [
       {
@@ -62,7 +62,7 @@ export default [
         value: 'React17'
       },
       {
-        title: '🚧 React18',
+        title: '🚧 React18 + Webpack',
         value: 'React18',
         disabled: true
       },
@@ -73,7 +73,7 @@ export default [
     name: 'subRouter',
     type: 'select',
     instructions: false,
-    message: 'Select the sub application route pattern (选择子应用路由模式)',
+    message: 'Select the sub application route pattern',
     choices: [
       {
         title: 'hash',

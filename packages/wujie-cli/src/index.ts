@@ -90,7 +90,6 @@ async function renderTemplate() {
   mainFramework.forEach(async (item) => {
     await fs.remove(`${options.dest}/examples/${item}`)
   })
-  // console.log(mainFramework)
   const obj = {}
   options.subFramework.forEach((item) => (obj[item] = true)) // 将需要对比的数组的值作为 obj的key
   const subItems = subFramework.map((item) => {
@@ -119,7 +118,6 @@ async function renderTemplate() {
       )
     })
   }
-  console.log(options)
 
   // 编译 ejs 模板文件
   await Promise.all(renderTemplateFiles().map((file) => ejsRender(file, options.name)))

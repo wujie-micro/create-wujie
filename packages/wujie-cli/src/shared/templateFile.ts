@@ -44,11 +44,6 @@ function renderTemplateFiles() {
   const res = options.subFramework.map((item) => {
     return resolveSubFrameworkFiles.get(item)
   })
-  console.log([
-    ...mainFrameworkMap.get(options.mainFramework),
-    ...res.flat().filter((item) => item !== undefined)
-  ])
-
   return [
     ...mainFrameworkMap.get(options.mainFramework),
     ...res.flat().filter((item) => item !== undefined)
