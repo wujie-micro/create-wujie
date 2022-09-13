@@ -42,23 +42,23 @@ export default [
     instructions: false,
     choices: [
       {
-        title: 'Vite',
+        title: 'Vue3 + Vite',
         value: 'Vite'
       },
       {
-        title: 'Vue2',
+        title: 'Vue2 + Webpack',
         value: 'Vue2'
       },
       {
-        title: 'Vue3',
+        title: 'Vue3 + Webpack',
         value: 'Vue3'
       },
       {
-        title: '🆕 React16',
+        title: '🆕 React16 + Webpack',
         value: 'React16'
       },
       {
-        title: '🆕 React17',
+        title: '🆕 React17 + Webpack',
         value: 'React17'
       },
       {
