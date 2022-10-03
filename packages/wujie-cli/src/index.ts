@@ -76,14 +76,18 @@ async function install() {
   )
 }
 async function renderTemplate() {
-  // 模板路径
-  const templatePath = path.resolve(__dirname, `template`)
   // 目录
   options.dest = path.resolve(cwd, options.name)
-
-  await fs.copy(templatePath, options.dest)
+  // 模板路径
+  const templatePath = path.resolve(__dirname, `template`)
   // 拷贝基础模板文件
+  await fs.copy(templatePath, options.dest)
+  // 删除 workspace yarn 和 npm 没有
+  if (options.package !== 'pnpm') {
+    console.log(`${options.dest}/pnpm-workspace.yaml`)
 
+    await fs.remove(`${options.dest}/pnpm-workspace.yaml`)
+  }
   const index = mainFramework.indexOf(options.mainFramework)
   mainFramework.splice(index, 1)
 
@@ -129,7 +133,7 @@ async function createWuJieProject() {
   console.log(gradient('#fff', '#f16b5f')('\n📦 Welcome To Create Template for WuJie! \n'))
   await createProjectQuestions()
   await renderTemplate()
-  await install()
+  // await install()
 }
 
 createWuJieProject()
