@@ -1,6 +1,6 @@
 {
   "name": "react16",
-  "version": "^1.0.0-rc.20",
+  "version": "1.0.0-rc.20",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.16.0",

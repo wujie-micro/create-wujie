@@ -1,6 +1,6 @@
 {
   "name": "vue3",
-  "version": "^1.0.0-rc.20",
+  "version": "1.0.0-rc.20",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
