@@ -42,16 +42,18 @@ const props = {
     router.push({ name });
   },
 };
+/**
+ * 大部分业务无需设置 attrs
+ * 此处修正 iframe 的 src，是防止github pages csp报错
+ * 因为默认是只有 host+port，没有携带路径
+ */
+const attrs = isProduction ? { src: hostMap("//localhost:8000/") } : {};
 // 创建应用，主要是设置配置，preloadApp、startApp的配置基于这个配置做覆盖
 <% if (subFramework.includes('React16')) { -%>
   setupApp({
     name: "react16",
     url: hostMap("//localhost:7600/"),
-    attrs: isProduction
-      ? {
-          src: hostMap("//localhost:7600/"),
-        }
-      : {},
+    attrs,
     exec: true,
     props,
     fetch: credentialsFetch,
@@ -75,11 +77,7 @@ const props = {
   setupApp({
     name: "react17",
     url: hostMap("//localhost:7100/"),
-    attrs: isProduction
-      ? {
-          src: hostMap("//localhost:7100/"),
-        }
-      : {},
+    attrs,
     exec: true,
     alive: true,
     props,
@@ -92,11 +90,7 @@ const props = {
   setupApp({
     name: "vue2",
     url: hostMap("//localhost:8081/"),
-    attrs: isProduction
-      ? {
-          src: hostMap("//localhost:8081/"),
-        }
-      : {},
+    attrs,
     exec: true,
     props,
     fetch: credentialsFetch,
@@ -109,11 +103,7 @@ const props = {
   setupApp({
     name: "vue3",
     url: hostMap("//localhost:8082/"),
-    attrs: isProduction
-      ? {
-          src: hostMap("//localhost:8082/"),
-        }
-      : {},
+    attrs,
     exec: true,
     alive: true,
     plugins: [
@@ -133,11 +123,7 @@ const props = {
   setupApp({
     name: "vite",
     url: hostMap("//localhost:8083/"),
-    attrs: isProduction
-      ? {
-          src: hostMap("//localhost:8083/"),
-        }
-      : {},
+    attrs,
     exec: true,
     props,
     fetch: credentialsFetch,
@@ -149,11 +135,7 @@ const props = {
   setupApp({
     name: "angular12",
     url: hostMap("//localhost:7400/"),
-    attrs: isProduction
-      ? {
-          src: hostMap("//localhost:7400/"),
-        }
-      : {},
+    attrs,
     exec: true,
     props,
     fetch: credentialsFetch,
