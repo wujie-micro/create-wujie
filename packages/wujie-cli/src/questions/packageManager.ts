@@ -5,7 +5,7 @@ const isPnpmInstalled = shouldUsePnpm()
 export default {
   name: 'package',
   type: 'select',
-  message: 'Which package manager do you want to use? (选择您的包管理器)',
+  message: 'Which package manager do you want to use? ',
   choices: [
     {
       title: isPnpmInstalled ? 'Pnpm' : 'Pnpm (pnpm not install)',
@@ -14,7 +14,7 @@ export default {
     {
       title: isYarnInstalled ? 'Yarn' : 'Yarn (yarn not install)',
       value: 'yarn'
-    },
-    { title: 'Npm', value: 'npm' }
+    }
+    // { title: 'Npm', value: 'npm' }
   ]
 }

@@ -12,6 +12,7 @@ function renderTemplateFiles() {
         `${MAIN_PREFIX_VUE}/main.js`,
         `${MAIN_PREFIX_VUE}/App.vue`,
         `${MAIN_PREFIX_VUE}/router/index.js`,
+        `examples/main-vue/wujie-config/hostMap.js`,
         `${MAIN_PREFIX_VUE}/views/Multiple.vue`
       ]
     ],
@@ -21,6 +22,7 @@ function renderTemplateFiles() {
         `${MAIN_PREFIX_VITE}/main.ts`,
         `${MAIN_PREFIX_VITE}/App.vue`,
         `${MAIN_PREFIX_VITE}/router/index.ts`,
+        `${MAIN_PREFIX_VITE}/wujie-config/hostMap.js`,
         `${MAIN_PREFIX_VITE}/views/Multiple.vue`
       ]
     ],

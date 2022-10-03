@@ -84,8 +84,6 @@ async function renderTemplate() {
   await fs.copy(templatePath, options.dest)
   // 删除 workspace yarn 和 npm 没有
   if (options.package !== 'pnpm') {
-    console.log(`${options.dest}/pnpm-workspace.yaml`)
-
     await fs.remove(`${options.dest}/pnpm-workspace.yaml`)
   }
   const index = mainFramework.indexOf(options.mainFramework)
@@ -133,7 +131,7 @@ async function createWuJieProject() {
   console.log(gradient('#fff', '#f16b5f')('\n📦 Welcome To Create Template for WuJie! \n'))
   await createProjectQuestions()
   await renderTemplate()
-  // await install()
+  await install()
 }
 
 createWuJieProject()
