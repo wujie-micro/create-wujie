@@ -9,12 +9,12 @@ export default [
         title: 'Webpack + Vue2',
         value: 'main-vue'
       },
+      // {
+      //   title: 'Vite + Vue3',
+      //   value: 'main-vite'
+      // },
       {
-        title: 'Vite + Vue3',
-        value: 'main-vite'
-      },
-      {
-        title: '🆕 Webpack + React17',
+        title: 'Webpack + React17',
         value: 'main-react'
       }
     ]
@@ -38,7 +38,7 @@ export default [
   {
     name: 'subFramework',
     type: 'multiselect',
-    message: 'What framework do you choose as your sub application',
+    message: 'What framework do you choose as your micro application',
     instructions: false,
     choices: [
       {
@@ -54,18 +54,18 @@ export default [
         value: 'Vue3'
       },
       {
-        title: '🆕 React16 + Webpack',
+        title: 'React16 + Webpack',
         value: 'React16'
       },
       {
-        title: '🆕 React17 + Webpack',
+        title: 'React17 + Webpack',
         value: 'React17'
       },
-      {
-        title: '🚧 React18 + Webpack',
-        value: 'React18',
-        disabled: true
-      },
+      // {
+      //   title: '🚧 React18 + Webpack',
+      //   value: 'React18',
+      //   disabled: true
+      // },
       { title: 'Angular12', value: 'Angular12' }
     ]
   },

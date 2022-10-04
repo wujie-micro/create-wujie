@@ -36,7 +36,7 @@ async function createProjectQuestions(): Promise<void> {
       options.name = targetDir
     }
     // 包管理器版本
-    await createQuestion(prompts, PackageDevice)
+    // await createQuestion(prompts, PackageDevice)
     // framework
     await createQuestion(prompts, framework)
     // cancel
@@ -64,16 +64,21 @@ async function install() {
   // 依赖安装
   console.log(`> Automatically installing dependencies...`)
   console.log('')
-  await cmdInherit(options.package, ['install'])
+
+  // await cmdInherit(options.package, ['install'])
+  await cmdInherit('pnpm', ['install'])
   clearConsole()
   endTime = new Date().getTime()
   const usageTime = (endTime - startTime) / 1000
   cyan(`> The WuJie Demo Project has been created successfully Usage time ${usageTime}s`)
   console.log('')
-  cyan(`✨✨ cd ${options.name}`)
-  cyan(
-    options.package === 'npm' ? `✨✨ ${options.package} run dev` : `✨✨ ${options.package} dev`
-  )
+  cyan('💬 Next steps:')
+  console.log(`  cd ${options.name}`)
+  console.log(`  pnpm dev`)
+  // cyan(
+  //   // options.package === 'npm' ? `✨✨ ${options.package} run dev` : `✨✨ ${options.package} dev`
+  //   `✨✨ pnpm dev`
+  // )
 }
 async function renderTemplate() {
   // 目录
@@ -83,9 +88,9 @@ async function renderTemplate() {
   // 拷贝基础模板文件
   await fs.copy(templatePath, options.dest)
   // 删除 workspace yarn 和 npm 没有
-  if (options.package !== 'pnpm') {
-    await fs.remove(`${options.dest}/pnpm-workspace.yaml`)
-  }
+  // if (options.package !== 'pnpm') {
+  //   await fs.remove(`${options.dest}/pnpm-workspace.yaml`)
+  // }
   const index = mainFramework.indexOf(options.mainFramework)
   mainFramework.splice(index, 1)
 
