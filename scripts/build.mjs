@@ -2,13 +2,14 @@ import * as esbuild from 'esbuild'
 
 await esbuild.build({
   bundle: true,
-  entryPoints: ['packages/wujie-cli/src/index.ts'],
-  outfile: 'packages/wujie-cli/outfile.cjs',
+  entryPoints: ['create-wujie/src/index.ts'],
+  outfile: 'create-wujie/create-wujie.cjs',
   format: 'cjs',
   platform: 'node',
   target: 'node14',
   treeShaking: true,
   external: ['prettier'],
+  watch: true,
   plugins: [
     {
       name: 'alias',
