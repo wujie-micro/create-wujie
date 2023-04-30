@@ -9,10 +9,10 @@ export default [
         title: 'Webpack + Vue2',
         value: 'main-vue'
       },
-      {
-        title: 'Vite + Vue3',
-        value: 'main-vite'
-      },
+      // {
+      //   title: 'Vite + Vue3',
+      //   value: 'main-vite'
+      // },
       {
         title: 'Webpack + React17',
         value: 'main-react'

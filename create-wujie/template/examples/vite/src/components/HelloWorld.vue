@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <img alt="Vue logo" src="vite.svg" />
+    <img alt="Vue logo" src="../assets/logo.png" />
     <h2 class="vue-title">{{ msg }}</h2>
   </div>
 </template>

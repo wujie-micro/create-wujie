@@ -1,17 +1,16 @@
 <template>
   <div>
-    <HelloWorld msg="Vue3 + vite3示例"></HelloWorld>
+    <HelloWorld msg="Vue3 + vite示例"></HelloWorld>
     <div class="content" style="text-align: center">
-      <p>
-        当前vite版本
-        <el-tag style="vertical-align: text-top" size="small">3.0.7</el-tag>
+      <p>当前vite版本
+        <el-tag style="vertical-align: text-top" size="small">2.7.2</el-tag>
       </p>
       <p>
         当前vue版本
         <el-tag style="vertical-align: text-top" size="small">3.2.26</el-tag>
       </p>
       <p>
-        当前element版本
+        当前element-plus版本
         <el-tag style="vertical-align: text-top" size="small">2.2.6</el-tag>
       </p>
       <p>
@@ -33,8 +32,8 @@ export default {
   },
   methods: {
     handleOpen() {
-      window.open("https://github.com/Tencent/wujie/tree/master/examples/vite");
-    },
+      window.open('https://github.com/Tencent/wujie/tree/master/examples/vite')
+    }
   },
 };
 </script>
