@@ -71,16 +71,16 @@ function Nav() {
 
   const degrade = window.Proxy
 
-
   // 在 xxx-sub 路由下子应用将激活路由同步给主应用，主应用跳转对应路由高亮菜单栏
   bus.$on("sub-route-change", (name, path) => {
     const mainName = `${name}-sub`;
     const mainPath = `/${name}-sub${path}`;
-    const currentPath = window.location.hash.replace("#", "");
-    if (currentPath.includes(mainName) && currentPath !== mainPath) {
+    const currentPath = window.location.hash.replace("#", "")
+    if(currentPath.includes(mainName) && currentPath !== mainPath) {
       navigation(mainPath);
     }
   });
+
 
   const handleFlag = (name) => {
     switch (name) {
@@ -113,6 +113,7 @@ function Nav() {
         break;
     }
   };
+
   return (
     <nav>
       <NavLink to="/home" className={({ isActive }) => (isActive ? "active" : "inactive")}>
@@ -249,7 +250,6 @@ class App extends React.PureComponent {
               <% if (subFramework.includes('Angular12')) { -%>
                 <Route exact path="/angular12" element={<Angular12 />} />
               <% } -%>
-              <Route exact path="/all" element={<All />} />
               <Route path="*" element={<Navigate to="/home" replace />} />
             </Routes>
           </div>
