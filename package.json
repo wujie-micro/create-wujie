@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "zx ./scripts/build.mjs",
+    "dev": "zx ./scripts/build.mjs",
     "lint": "turbo run lint",
     "lint:fix": "eslint --fix --ext .js .",
     "format": "prettier --write \"**/*.{ts,tsx,vue,js,md}\"",

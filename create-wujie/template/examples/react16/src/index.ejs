@@ -18,9 +18,9 @@ if (window.__POWERED_BY_WUJIE__) {
   // eslint-disable-next-line no-undef
   window.__WUJIE_MOUNT = () => {
     ReactDOM.render(
-      <BrowserRouter basename={basename}>
+      <Router basename={basename}>
         <App />
-      </BrowserRouter>,
+      </Router>,
       document.getElementById("root")
     );
   };
@@ -29,9 +29,9 @@ if (window.__POWERED_BY_WUJIE__) {
   };
 } else {
   ReactDOM.render(
-    <BrowserRouter basename={basename}>
+    <Router basename={basename}>
       <App />
-    </BrowserRouter>,
+    </Router>,
     document.getElementById("root")
   );
 }

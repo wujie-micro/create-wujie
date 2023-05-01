@@ -61,11 +61,11 @@ export default [
         title: 'React17',
         value: 'React17'
       },
-      {
-        title: '🚧 React18',
-        value: 'React18',
-        disabled: true
-      },
+      // {
+      //   title: '🚧 React18',
+      //   value: 'React18',
+      //   disabled: true
+      // },
       { title: 'Angular12', value: 'Angular12' }
     ]
   },
