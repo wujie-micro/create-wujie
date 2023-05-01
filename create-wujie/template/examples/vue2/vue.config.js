@@ -1,5 +1,5 @@
 module.exports = {
-  transpileDependencies: true,
+  transpileDependencies: ['element-ui', 'ant-design-vue'],
   publicPath: "./",
   devServer: {
     headers: {
