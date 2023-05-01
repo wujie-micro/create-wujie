@@ -1,8 +1,8 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode } from '@angular/core'
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+import { AppModule } from './app/app.module'
+import { environment } from './environments/environment'
 
 declare global {
   interface Window {
@@ -18,19 +18,18 @@ declare global {
 }
 
 if (environment.production) {
-  enableProdMode();
+  enableProdMode()
 }
 
 if (window.__POWERED_BY_WUJIE__) {
-  let instance: any;
+  let instance: any
   window.__WUJIE_MOUNT = async () => {
-    instance = await platformBrowserDynamic().bootstrapModule(AppModule);
-  };
+    instance = await platformBrowserDynamic().bootstrapModule(AppModule)
+  }
   window.__WUJIE_UNMOUNT = () => {
-    instance.destroy();
-  };
+    instance.destroy()
+  }
 } else {
-  platformBrowserDynamic()
-    .bootstrapModule(AppModule)
-    .catch((err) => console.error(err));
+  platformBrowserDynamic().bootstrapModule(AppModule)
+    .catch(err => console.error(err))
 }
