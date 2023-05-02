@@ -1,6 +1,6 @@
 const map = {
   "//localhost:7100/": "//wujie-micro.github.io/demo-react17/",
-  "//localhost:8081/": "//wujie-micro.github.io/demo-vue2/",
+  "//localhost:6100/": "//wujie-micro.github.io/demo-vue2/",
   "//localhost:8082/": "//wujie-micro.github.io/demo-vue3/",
   "//localhost:7400/": "//wujie-micro.github.io/demo-angular12/",
   "//localhost:8083/": "//wujie-micro.github.io/demo-vite/",

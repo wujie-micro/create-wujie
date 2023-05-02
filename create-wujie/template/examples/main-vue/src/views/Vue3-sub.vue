@@ -9,7 +9,7 @@ import wujieVue from "wujie-vue2";
 export default {
   data() {
     return {
-      vue3Url: hostMap("//localhost:8081/") + this.$route.params.path,
+      vue3Url: hostMap("//localhost:6100/") + this.$route.params.path,
     };
   },
   watch: {

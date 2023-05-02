@@ -3,10 +3,8 @@
   "version": "0.0.0",
   "description": "极致的微前端框架",
   "private": true,
-  "workspaces": [
-    "examples/*"
-  ],
   "scripts": {
+    "start": "lerna run start --parallel",
     "dev": "turbo run start --parallel --no-cache",
     "doc": "turbo run docs:dev --filter=wujie-doc",
     "build": "turbo run build --filter=\"wujie-*\" --filter=wujie",
@@ -30,7 +28,9 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.4.1",
     "rimraf": "^3.0.2",
-    "turbo": "1.3.2"
+    "turbo": "1.3.2",
+    "@lerna-lite/cli": "^1.11.1",
+    "@lerna-lite/run": "^1.11.1"
   },
   "dependencies": {
     "prettier": "latest"

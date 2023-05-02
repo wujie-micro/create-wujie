@@ -86,7 +86,7 @@ const attrs = isProduction ? { src: hostMap("//localhost:8000/") } : {};
 <% if (subFramework.includes('Vue2')) { -%>
   setupApp({
     name: "vue2",
-    url: hostMap("//localhost:8081/"),
+    url: hostMap("//localhost:6100/"),
     attrs,
     exec: true,
     props,

@@ -1,0 +1,20 @@
+{
+  "packages": [
+    "packages/*",
+    "examples/*",
+    "docs"
+  ],
+  "npmClient": "pnpm",
+  "command": {
+    "version": {
+      "allowBranch": "master"
+    },
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock",
+        "--legacy-peer-deps"
+      ]
+    }
+  },
+  "version": "1.0.14"
+}

@@ -23,14 +23,14 @@ const props = {
 
 setupApp({
   name: "vue2",
-  url: hostMap("//localhost:8081/"),
-  attrs: isProduction ? { src: hostMap("//localhost:8081/") } : {},
+  url: hostMap("//localhost:6100/"),
+  attrs: isProduction ? { src: hostMap("//localhost:6100/") } : {},
   exec: true,
   props,
   plugins,
   fetch: credentialsFetch,
   degrade,
-  vue2Attrs: process.env.NODE_ENV === "production" ? { src: hostMap("//localhost:8081/") } : {},
+  vue2Attrs: process.env.NODE_ENV === "production" ? { src: hostMap("//localhost:6100/") } : {},
   ...lifecycles,
 });
 

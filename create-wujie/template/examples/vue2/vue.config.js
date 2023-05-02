@@ -1,5 +1,5 @@
 module.exports = {
-  transpileDependencies: ['element-ui', 'ant-design-vue'],
+  transpileDependencies: ["element-ui", "ant-design-vue"],
   publicPath: "./",
   devServer: {
     headers: {
@@ -7,7 +7,7 @@ module.exports = {
       "Access-Control-Allow-Headers": "*",
       "Access-Control-Allow-Methods": "*",
     },
-    port: "8081",
+    port: "6100",
   },
   lintOnSave: false,
 };

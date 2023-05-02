@@ -50,8 +50,8 @@ const degrade = window.localStorage.getItem("degrade") === "true" || !window.Pro
 <% if (subFramework.includes('Vue2')) { -%>
   setupApp({
     name: "vue2",
-    url: hostMap("//localhost:8081/"),
-    attrs: isProduction ? { src: hostMap("//localhost:8081/") } : {},
+    url: hostMap("//localhost:6100/"),
+    attrs: isProduction ? { src: hostMap("//localhost:6100/") } : {},
     exec: true,
     fetch: credentialsFetch,
     degrade,
