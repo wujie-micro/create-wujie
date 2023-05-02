@@ -23,7 +23,7 @@ export default [
     name: 'mainRouter',
     type: 'select',
     instructions: false,
-    message: 'Select the main application route pattern (选择主应用路由模式)',
+    message: 'Select the main application route pattern',
     choices: [
       {
         title: 'hash',
@@ -73,7 +73,7 @@ export default [
     name: 'subRouter',
     type: 'select',
     instructions: false,
-    message: 'Select the sub application route pattern (选择子应用路由模式)',
+    message: 'Select the sub application route pattern',
     choices: [
       {
         title: 'hash',

@@ -227,6 +227,7 @@ class App extends React.PureComponent {
           <div className="content" onClick={() => this.changeActive(false)}>
             <Routes>
               <Route exact path="/home" element={<Home changeActive={this.changeActive} />} />
+              <div>
               <% if (subFramework.includes('React16')) { -%>
                 <Route exact path="/react16" element={<React16 />} />
                 <Route exact path="/react16-sub/:path" element={<React16 />} />
@@ -250,6 +251,7 @@ class App extends React.PureComponent {
               <% if (subFramework.includes('Angular12')) { -%>
                 <Route exact path="/angular12" element={<Angular12 />} />
               <% } -%>
+              </div>
               <Route path="*" element={<Navigate to="/home" replace />} />
             </Routes>
           </div>
