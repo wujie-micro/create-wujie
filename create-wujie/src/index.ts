@@ -67,14 +67,16 @@ async function install() {
   // default use pnpm
   // await cmdInherit(options.package, ['install'])
   await cmdInherit('pnpm', ['install'])
-  clearConsole()
+  // clearConsole()
   endTime = new Date().getTime()
   const usageTime = (endTime - startTime) / 1000
+  console.log('')
   cyan(`> The WuJie Demo Project has been created successfully Usage time ${usageTime}s`)
   console.log('')
-  cyan(`✨✨ cd ${options.name}`)
+  cyan(` cd ${options.name}`)
+  console.log('')
   cyan(
-    options.package === 'npm' ? `✨✨ ${'pnpm'} run dev` : `✨✨ ${'pnpm'} dev`
+    options.package === 'npm' ? ` ${'pnpm'} run dev` : ` ${'pnpm'} dev`
   )
 }
 async function renderTemplate() {
