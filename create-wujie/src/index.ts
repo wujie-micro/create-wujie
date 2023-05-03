@@ -54,7 +54,9 @@ async function install() {
   // 开始记录用时
   startTime = new Date().getTime()
 
+  console.log('')
   yellow(`> The project template is generated in the directory: ${options.dest}`)
+  console.log('')
   // Git 初始化
   await cmdIgnore('git', ['init'])
   await cmdIgnore('git', ['add .'])
