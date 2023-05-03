@@ -43,8 +43,8 @@ export default {
   methods: {
     handleClick() {
       if (window.__WUJIE?.degrade || !window.Proxy || !window.CustomElementRegistry) {
-        window.$wujie.location.href = "https://wujicode.cn/xy/app/prod/official/home";
-      } else window.location.href = "https://wujicode.cn/xy/app/prod/official/home";
+        window.$wujie.location.href = "https://v2.vuejs.org/";
+      } else window.location.href = "https://wujicode.cn/xy/app/prod/official/index";
     },
   },
 };

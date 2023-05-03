@@ -1,9 +1,9 @@
 {
   "name": "angular12",
-  "version": "1.0.0-rc.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "dev": "ng serve",
+    "start": "ng serve",
     "build": "ng build --deploy-url='/demo-angular12/'",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

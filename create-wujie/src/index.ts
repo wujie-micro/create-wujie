@@ -5,7 +5,7 @@ import createSpawnCmd from '@/utils/createSpawnCmd'
 import { ejsRender } from '@/utils/ejsRender'
 import options from '@/shared/options'
 import { renderTemplateFiles, mainFramework, subFramework } from '@/shared/templateFile'
-import PackageDevice from '@/questions/packageManager'
+// import PackageDevice from '@/questions/packageManager'
 import projectName from '@/questions/projectName'
 import framework from '@/questions/framework'
 import createQuestion from '@/questions'
@@ -54,7 +54,9 @@ async function install() {
   // 开始记录用时
   startTime = new Date().getTime()
 
+  console.log('')
   yellow(`> The project template is generated in the directory: ${options.dest}`)
+  console.log('')
   // Git 初始化
   await cmdIgnore('git', ['init'])
   await cmdIgnore('git', ['add .'])
@@ -67,15 +69,15 @@ async function install() {
   // default use pnpm
   // await cmdInherit(options.package, ['install'])
   await cmdInherit('pnpm', ['install'])
-  clearConsole()
+  // clearConsole()
   endTime = new Date().getTime()
   const usageTime = (endTime - startTime) / 1000
-  cyan(`> The WuJie Demo Project has been created successfully Usage time ${usageTime}s`)
   console.log('')
-  cyan(`✨✨ cd ${options.name}`)
-  cyan(
-    options.package === 'npm' ? `✨✨ ${'pnpm'} run dev` : `✨✨ ${'pnpm'} dev`
-  )
+  yellow(`> The WuJie Demo Project has been created successfully Usage time ${usageTime}s`)
+  console.log('')
+  yellow(`  cd ${options.name}`)
+  console.log('')
+  yellow(options.package === 'npm' ? `  ${'pnpm'} run dev` : `  ${'pnpm'} dev`)
 }
 async function renderTemplate() {
   // 模板路径
@@ -102,7 +104,6 @@ async function renderTemplate() {
   }) // 这里是对比出来不同的元素
   // 移除undefined
   const removeSubItems = subItems.filter((item) => item !== undefined)
-  console.log(removeSubItems)
   removeSubItems.forEach(async (item) => {
     await fs.remove(`${options.dest}/examples/${item}`)
   })
@@ -123,10 +124,10 @@ async function renderTemplate() {
     })
   }
 
-  console.log(options)
+  // console.log(options)
 
   // 编译 ejs 模板文件
-  console.log(renderTemplateFiles())
+  // console.log(renderTemplateFiles())
 
   await Promise.all(renderTemplateFiles().map((file) => ejsRender(file, options.name)))
 }

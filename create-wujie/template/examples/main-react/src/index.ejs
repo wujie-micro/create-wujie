@@ -1,3 +1,6 @@
+import "react-app-polyfill/stable";
+import "react-app-polyfill/ie11";
+
 import React from "react";
 import ReactDOM from "react-dom";
 import WujieReact from "wujie-react";
@@ -47,8 +50,8 @@ const degrade = window.localStorage.getItem("degrade") === "true" || !window.Pro
 <% if (subFramework.includes('Vue2')) { -%>
   setupApp({
     name: "vue2",
-    url: hostMap("//localhost:8081/"),
-    attrs: isProduction ? { src: hostMap("//localhost:8081/") } : {},
+    url: hostMap("//localhost:6100/"),
+    attrs: isProduction ? { src: hostMap("//localhost:6100/") } : {},
     exec: true,
     fetch: credentialsFetch,
     degrade,
@@ -108,20 +111,24 @@ if (window.localStorage.getItem("preload") !== "false") {
       name: "vue2",
     });
   <% } -%>
-  <% if (subFramework.includes('Vue3')) { -%>
-    preloadApp({
-      name: "vue3",
-    });
-  <% } -%>
-  <% if (subFramework.includes('Vite')) { -%>
-    preloadApp({
-      name: "vite",
-    });
-  <% } -%>
   <% if (subFramework.includes('Angular12')) { -%>
     preloadApp({
       name: "angular12",
     });
+  <% } -%>
+  <% if (subFramework.includes('Vue3') || subFramework.includes('Vite')) { -%>
+    if (window.Proxy) {
+      <% if (subFramework.includes('Vue3')) { -%>
+        preloadApp({
+          name: "vue3",
+        });
+      <% } -%>
+      <% if (subFramework.includes('Vite')) { -%>
+        preloadApp({
+          name: "vite",
+        });
+      <% } -%>
+    }
   <% } -%>
 }
 

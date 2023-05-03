@@ -54,41 +54,48 @@ const attrs = isProduction ? { src: hostMap("//localhost:8000/") } : {};
  * 配置应用，主要是设置默认配置
  * preloadApp、startApp的配置会基于这个配置做覆盖
  */
-setupApp({
-  name: "react16",
-  url: hostMap("//localhost:7600/"),
-  attrs,
-  exec: true,
-  props,
-  fetch: credentialsFetch,
-  plugins,
-  prefix: { "prefix-dialog": "/dialog", "prefix-location": "/location" },
-  degrade,
-  ...lifecycles,
-});
 
-setupApp({
-  name: "react17",
-  url: hostMap("//localhost:7100/"),
-  attrs,
-  exec: true,
-  alive: true,
-  props,
-  fetch: credentialsFetch,
-  degrade,
-  ...lifecycles,
-});
+<% if (subFramework.includes('React16')) { -%>
+  setupApp({
+    name: "react16",
+    url: hostMap("//localhost:7600/"),
+    attrs,
+    exec: true,
+    props,
+    fetch: credentialsFetch,
+    plugins,
+    prefix: { "prefix-dialog": "/dialog", "prefix-location": "/location" },
+    degrade,
+    ...lifecycles,
+  });
+<% } -%>
 
-setupApp({
-  name: "vue2",
-  url: hostMap("//localhost:8081/"),
-  attrs,
-  exec: true,
-  props,
-  fetch: credentialsFetch,
-  degrade,
-  ...lifecycles,
-});
+<% if (subFramework.includes('React17')) { -%>
+  setupApp({
+    name: "react17",
+    url: hostMap("//localhost:7100/"),
+    attrs,
+    exec: true,
+    alive: true,
+    props,
+    fetch: credentialsFetch,
+    degrade,
+    ...lifecycles,
+  });
+<% } -%>
+<% if (subFramework.includes('Vue2')) { -%>
+  setupApp({
+    name: "vue2",
+    url: hostMap("//localhost:6100/"),
+    attrs,
+    exec: true,
+    props,
+    fetch: credentialsFetch,
+    degrade,
+    ...lifecycles,
+  });
+<% } -%>
+<% if (subFramework.includes('Vue3')) { -%>
 
 setupApp({
   name: "vue3",
@@ -104,18 +111,20 @@ setupApp({
   degrade,
   ...lifecycles,
 });
-
-setupApp({
-  name: "angular12",
-  url: hostMap("//localhost:7400/"),
-  attrs,
-  exec: true,
-  props,
-  fetch: credentialsFetch,
-  degrade,
-  ...lifecycles,
-});
-
+<% } -%>
+<% if (subFramework.includes('Angular12')) { -%>
+  setupApp({
+    name: "angular12",
+    url: hostMap("//localhost:7400/"),
+    attrs,
+    exec: true,
+    props,
+    fetch: credentialsFetch,
+    degrade,
+    ...lifecycles,
+  });
+<% } -%>
+<% if (subFramework.includes('Vite')) { -%>
 setupApp({
   name: "vite",
   url: hostMap("//localhost:8083/"),
@@ -126,28 +135,48 @@ setupApp({
   degrade,
   ...lifecycles,
 });
+<% } -%>
 
 if (window.localStorage.getItem("preload") !== "false") {
+<% if (subFramework.includes('React16')) { -%>
   preloadApp({
     name: "react16",
   });
+<% } -%>
+
+<% if (subFramework.includes('React17')) { -%>
+
   preloadApp({
     name: "react17",
   });
+<% } -%>
+
+<% if (subFramework.includes('Vue2')) { -%>
   preloadApp({
     name: "vue2",
   });
+<% } -%>
+
+<% if (subFramework.includes('Angular12')) { -%>
   preloadApp({
     name: "angular12",
   });
+<% } -%>
+
+<% if (subFramework.includes('Vue3') || subFramework.includes('Vite')) { -%>
   if (window.Proxy) {
-    preloadApp({
-      name: "vue3",
-    });
-    preloadApp({
-      name: "vite",
-    });
+    <% if (subFramework.includes('Vue3')) { -%>
+      preloadApp({
+        name: "vue3",
+      });
+    <% } -%>
+    <% if (subFramework.includes('Vite')) { -%>
+      preloadApp({
+        name: "vite",
+      });
+    <% } -%>
   }
+<% } -%>
 }
 
 new Vue({

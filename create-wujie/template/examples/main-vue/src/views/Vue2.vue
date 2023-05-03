@@ -9,7 +9,7 @@ import hostMap from "../../wujie-config/hostMap";
 export default {
   data() {
     return {
-      vue2Url: hostMap("//localhost:8081/"),
+      vue2Url: hostMap("//localhost:6100/"),
     };
   },
   methods: {

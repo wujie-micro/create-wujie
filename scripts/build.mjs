@@ -9,7 +9,6 @@ await esbuild.build({
   target: 'node14',
   treeShaking: true,
   external: ['prettier'],
-  watch: true,
   plugins: [
     {
       name: 'alias',

@@ -1,6 +1,5 @@
-const { defineConfig } = require("@vue/cli-service");
-module.exports = defineConfig({
-  transpileDependencies: true,
+module.exports = {
+  transpileDependencies: ["element-ui", "ant-design-vue"],
   publicPath: "./",
   devServer: {
     headers: {
@@ -8,7 +7,7 @@ module.exports = defineConfig({
       "Access-Control-Allow-Headers": "*",
       "Access-Control-Allow-Methods": "*",
     },
-    port: "8081",
+    port: "6100",
   },
   lintOnSave: false,
-});
+};

@@ -1,9 +1,9 @@
 {
   "name": "main-vue",
-  "version": "1.0.0-rc.13",
+  "version": "1.0.14",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
