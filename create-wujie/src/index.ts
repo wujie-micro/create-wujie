@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { cyan, yellow } from '@/utils/log'
+import { green, yellow } from '@/utils/log'
 import clearConsole from '@/utils/clearConsole'
 import createSpawnCmd from '@/utils/createSpawnCmd'
 import { ejsRender } from '@/utils/ejsRender'
@@ -73,11 +73,11 @@ async function install() {
   endTime = new Date().getTime()
   const usageTime = (endTime - startTime) / 1000
   console.log('')
-  yellow(`> The WuJie Demo Project has been created successfully Usage time ${usageTime}s`)
+  green(`> The WuJie Demo Project has been created successfully Usage time ${usageTime}s`)
   console.log('')
-  yellow(`  cd ${options.name}`)
+  green(`  cd ${options.name}`)
   console.log('')
-  yellow(options.package === 'npm' ? `  ${'pnpm'} run dev` : `  ${'pnpm'} dev`)
+  green(options.package === 'npm' ? `  ${'pnpm'} run dev` : `  ${'pnpm'} dev`)
 }
 async function renderTemplate() {
   // 模板路径
