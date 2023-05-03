@@ -251,6 +251,7 @@ class App extends React.PureComponent {
               <% if (subFramework.includes('Angular12')) { -%>
                 <Route exact path="/angular12" element={<Angular12 />} />
               <% } -%>
+              <Route exact path="/all" element={<All />} />
               <Route path="*" element={<Navigate to="/home" replace />} />
             </Routes>
           </div>
