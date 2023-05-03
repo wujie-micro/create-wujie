@@ -1,6 +1,6 @@
 {
   "name": "create-wujie",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "",
   "bin": {
     "wujie": "create-wujie.cjs"
